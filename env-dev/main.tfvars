@@ -34,3 +34,51 @@ rabbitmq = {
     component     = "rabbitmq"
   }
 }
+
+rds = {
+  main = {
+    component      = "rds"
+    engine         = "aurora-mysql"
+    engine_version = "5.7.mysql_aurora.2.11.3"
+    db_name        = "dummy"
+    instance_count = 1
+    instance_class = "db.t3.small"
+  }
+}
+
+documentdb = {
+  main = {
+    component         = "docdb"
+    engine            = "docdb"
+    engine_version    = "4.0.0"
+    db_instance_count = 1
+    instance_class    = "db.t3.medium"
+  }
+}
+
+elasticache = {
+  main = {
+    component               = "elasticache"
+    engine                  = "redis"
+    engine_version          = "6.x"
+    replicas_per_node_group = 1
+    num_node_groups         = 1
+    node_type               = "cache.t3.micro"
+    parameter_group_name    = "default.redis6.x.cluster.on"
+  }
+}
+
+alb = {
+  public = {
+    name               = "public"
+    internal           = false
+    load_balancer_type = "application"
+    subnet_ref         = "public"
+  }
+  private = {
+    name               = "private"
+    internal           = true
+    load_balancer_type = "application"
+    subnet_ref         = "app"
+  }
+}
