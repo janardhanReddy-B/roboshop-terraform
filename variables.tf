@@ -12,5 +12,5 @@ variable "kms_key_arn" {}
 variable "documentdb" {}
 variable "elasticache" {}
 variable "alb" {}
-variable "apps" {}
+#variable "apps" {}
 variable "allow_prometheus_cidr" {}
