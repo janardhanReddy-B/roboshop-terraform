@@ -16,3 +16,9 @@ prod:
 	@git pull
 	@terraform init -backend-config=env-prod/state.tfvars
 	@terraform apply -auto-aprove -var-file=env-prod/main.tfvars
+
+dev_destroy:
+	@rm -rf .terraform
+	@git pull
+	@terraform init -backend-config=env-prod/state.tfvars
+	@terraform destroy -auto-approve -var-file=env-prod/main.tfvars
