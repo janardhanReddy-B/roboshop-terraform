@@ -49,7 +49,7 @@ module "rds" {
 
 }
 
-module "documentdb-b" {
+module "documentdb" {
   source = "git::https://github.com/janardhanReddy-B/tf-module-docmentdb-b.git"
 
   for_each          = var.documentdb
@@ -67,7 +67,7 @@ module "documentdb-b" {
   kms_key_arn = var.kms_key_arn
 }
 
-module "elasticache-b" {
+module "elasticache" {
   source = "git::https://github.com/janardhanReddy-B/tf-mdoule-elasticache-b.git"
 
   for_each                = var.elasticache
@@ -87,7 +87,7 @@ module "elasticache-b" {
   kms_key_arn = var.kms_key_arn
 }
 
-module "alb-b" {
+module "alb" {
   source = "git::https://github.com/janardhanReddy-B/tf-module-alb-b.git"
 
   for_each           = var.alb
