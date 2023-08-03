@@ -1,4 +1,3 @@
-
 module "vpc" {
   source = "git::https://github.com/janardhanReddy-B/tf-module-vpc-b.git"
 
@@ -50,7 +49,7 @@ module "rds" {
 
 }
 
-module "documentdb" {
+module "documentdb-b" {
   source = "git::https://github.com/janardhanReddy-B/tf-module-documentdb-b.git"
 
   for_each          = var.documentdb
@@ -68,8 +67,8 @@ module "documentdb" {
   kms_key_arn = var.kms_key_arn
 }
 
-module "elasticache" {
-  source = "git::https://github.com/janardhanReddy-B/tf-module-elasticache-b.git"
+module "elasticache-b" {
+  source = "git::https://github.com/janardhanReddy-B/tf-mdoule-elasticache-b.git"
 
   for_each                = var.elasticache
   component               = each.value["component"]
@@ -88,7 +87,7 @@ module "elasticache" {
   kms_key_arn = var.kms_key_arn
 }
 
-module "alb" {
+module "alb-b" {
   source = "git::https://github.com/janardhanReddy-B/tf-module-alb-b.git"
 
   for_each           = var.alb
