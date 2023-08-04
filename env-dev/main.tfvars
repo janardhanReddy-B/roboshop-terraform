@@ -87,6 +87,7 @@ alb = {
   public = {
     subnet_name        = "public"
     name               = "public"
+    subnet_ref         = "public"
     internal           = false
     load_balancer_type = "application"
     allow_cidr         = ["0.0.0.0/0"]
