@@ -69,18 +69,35 @@ elasticache = {
   }
 }
 
+#alb = {
+#  public = {
+#    name               = "public"
+#    internal           = false
+#    load_balancer_type = "application"
+#    subnet_ref         = "public"
+#  }
+#  private = {
+#    name               = "private"
+#    internal           = true
+#    load_balancer_type = "application"
+#    subnet_ref         = "app"
+#  }
+#}
 alb = {
   public = {
+    subnet_name        = "public"
     name               = "public"
     internal           = false
     load_balancer_type = "application"
-    subnet_ref         = "public"
+    allow_cidr         = ["0.0.0.0/0"]
   }
+
   private = {
+    subnet_name        = "app"
     name               = "private"
     internal           = true
     load_balancer_type = "application"
-    subnet_ref         = "app"
+    allow_cidr         = ["10.0.2.0/24", "10.0.3.0/24", "10.0.4.0/24", "10.0.5.0/24"]
   }
 }
 apps = {
